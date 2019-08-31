@@ -36,6 +36,7 @@ public class Solution {
     public static int singleNumber(int[] nums) {
 
         int result = 0;
+        
 
         /*
         If we take XOR of zero and some bit, it will return that bit
