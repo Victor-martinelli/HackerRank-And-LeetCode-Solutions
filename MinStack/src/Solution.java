@@ -32,9 +32,9 @@ public class Solution {
         MinStack stack = new MinStack();
         
         stack.push(2);
-        stack.push(0);
         stack.push(3);
-        stack.push(0);
+        stack.push(4);
+        stack.push(1);
         
         System.out.println("Current Min: "+stack.getMin());
         

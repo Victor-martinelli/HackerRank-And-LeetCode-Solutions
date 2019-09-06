@@ -79,6 +79,49 @@ public class Solution {
         }
         
     }
+
+      public static List<List<Integer>> levelOrderAnother(TreeNode root) {
+        
+        Queue<TreeNode> cola = new LinkedList();
+        
+        List<List<Integer>> result = new ArrayList();
+        
+        if(root!=null)
+        {
+            
+            cola.offer(root);
+            
+            while(!cola.isEmpty())
+            {
+                
+                List<Integer> current = new ArrayList();
+                
+                //This initializes the different levels of the tree
+                int size = cola.size();
+                
+                for(int i=0;i<size;i++)
+                {
+                    TreeNode currentElement = cola.poll();
+                    
+                    current.add(currentElement.val);
+                    
+                    if(currentElement.left!=null)
+                        cola.offer(currentElement.left);
+                    
+                    if(currentElement.right!=null)
+                        cola.offer(currentElement.right);
+                    
+                }
+                
+                result.add(current);
+                
+            }
+            
+        }
+        
+        
+        return result;
+    }
     
      public static List<List<Integer>> levelOrderOriginal(TreeNode root) {
         

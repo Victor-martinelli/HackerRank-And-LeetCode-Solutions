@@ -150,5 +150,41 @@ public class Solution {
         return head;
     }
     
+    /*
+    public ListNode removeNthFromEnd(ListNode head, int n) {
+        
+        ListNode slow=head;
+        
+        ListNode fast=head;
+        
+        while(n>0 && fast!=null)
+        {
+            fast=fast.next;
+            n--;
+        }
+        
+        //System.out.println(fast.val);
+        
+        if(fast==null)
+        {
+            slow=slow.next;
+            head=slow;
+        }
+        else
+        {
+            
+            while(fast.next!=null)
+            {
+                slow=slow.next;
+                fast=fast.next;
+            }
+
+            slow.next=slow.next.next;
+        }
+            
+        return head;
+    }
+    */
+    
     
 }
