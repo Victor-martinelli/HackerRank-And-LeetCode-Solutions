@@ -53,8 +53,28 @@ public class Solution {
         System.out.println("There are "+climbStairs(n)+" ways of reaching "+n+" with 1 and 2 steps.");
     }
     
+    public static int climbStairs(int n) {
+        int [] dp = new int[n+1];
+        
+        //Base cases
+        dp[0] = 1; // One way of climbing 0 steps, just dont climb
+        dp[1] = 1; //One way of climbing 1 steps, 1 step
+        
+        for(int i=2;i<=n;i++)
+        {
+            
+            //There is only one way of reaching the current point, take 1 or 2 steps from
+            //the previous 1 and 2 solutions
+            
+            dp[i] = dp[i-1] + dp[i-2];
+            
+        }
+        
+        return dp[n];
+    }
+    
     //Fibonacci Sequence
-     public static int climbStairs(int n) {
+     public static int climbStairsOther(int n) {
         
         int a=1;
         
