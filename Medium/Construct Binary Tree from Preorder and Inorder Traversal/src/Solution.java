@@ -27,6 +27,9 @@ Return the following binary tree:
  */
 public class Solution {
 
+    //Index in the preorder array
+        static int preIndex=0;
+    
     /**
      * @param args the command line arguments
      */
@@ -40,7 +43,7 @@ public class Solution {
         printList(inorder1);
         
         System.out.println("Result Tree: ");
-        nodesPrint(buildTreeIterative(preorder1,inorder1));
+        nodesPrint(buildTreeRecursive(preorder1,inorder1));
     }
 
     public static TreeNode buildTreeIterative(int[] preorder, int[] inorder) {
@@ -96,6 +99,52 @@ public class Solution {
         }
 
     }
+    
+     public static TreeNode buildTreeRecursive(int[] preorder, int[] inorder) {
+        
+        //Number and position in Inorder
+       HashMap<Integer,Integer> map = new HashMap();
+        
+        //We store the position for each of the nodes as the appear in the tree
+       for(int i=0;i<inorder.length;i++)
+       {
+           map.put(inorder[i],i);
+       }
+        
+        return auxBuildTree(preorder,inorder,map,0,inorder.length-1);
+        
+    }
+    
+    public static TreeNode auxBuildTree(int[] preorder, int[] inorder,HashMap<Integer,Integer> map,int start,int end)
+    {
+        
+        if(start>end)
+            return null;
+        else
+        {
+            
+            TreeNode current = new TreeNode(preorder[preIndex]);
+            
+            //Go to the next number in the tree
+            preIndex++;
+            
+            //Position of the current element in inorder
+            int index = map.get(current.val);
+            
+            //We adjust the indices for each of the future children
+            current.left= auxBuildTree(preorder,inorder,map,start,index-1); //Everything from the start to the index must be to the left of the current
+                                                                            //node, as by definition of inorder
+            
+            current.right = auxBuildTree(preorder,inorder,map,index+1,end);  //Everything from the start to the index must be to the right of the current
+                                                                            //node, as by definition of inorder
+            
+            
+            return current;
+        }
+        
+        
+    }
+    
 
     public static void printList(int[] lista) {
         for (int el : lista) {
@@ -118,6 +167,8 @@ public class Solution {
         }
         
     }
+    
+    
     
     
 }
