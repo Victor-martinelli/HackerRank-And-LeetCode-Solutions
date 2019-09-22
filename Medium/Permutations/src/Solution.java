@@ -1,13 +1,22 @@
 
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * Given a collection of distinct integers, return all possible permutations.
+
+Example:
+
+Input: [1,2,3]
+Output:
+[
+  [1,2,3],
+  [1,3,2],
+  [2,1,3],
+  [2,3,1],
+  [3,1,2],
+  [3,2,1]
+]
  */
 
 /**
@@ -22,8 +31,11 @@ public class Solution {
     public static void main(String[] args) {
         int [] nums = {1,2,3};
         
-        permute(nums);
+        System.out.println("Original Array: ");
+        printArray(nums);
         
+        System.out.println("Solutions: ");
+        printList(permuteBackTracking(nums));
     }
     
     
@@ -31,16 +43,25 @@ public class Solution {
         
         List<List<Integer>> current = new ArrayList();
         
-        //We first populate the result with every inital number
-        
-        for(int i=0;i<nums.length;i++)
+        if(nums.length>0)
         {
-            List<Integer> temp = new ArrayList();
-            temp.add(nums[i]);
-            current.add(temp);
+
+            //We first populate the result with every inital number
+
+            for(int i=0;i<nums.length;i++)
+            {
+                List<Integer> temp = new ArrayList();
+                temp.add(nums[i]);
+                current.add(temp);
+            }
+
+            return generatePermutation(nums,current,1);
         }
-        
-        return generatePermutation(nums,current,1);
+        else
+        {
+            current.add(new ArrayList());
+            return current;
+        }
     }
     
     
@@ -59,10 +80,12 @@ public class Solution {
                 for(List<Integer> solution : current)
                 {
                     
-                    if(!solution.contains(nums[i]))
+                    List<Integer> temp = new ArrayList(solution);
+                    
+                    if(!temp.contains(nums[i]))
                     {
-                        solution.add(nums[i]);
-                        result.add(solution);
+                        temp.add(nums[i]);
+                        result.add(temp);
                     }
                     
                 }
@@ -75,6 +98,74 @@ public class Solution {
         {
             return current;
         }
+    }
+    
+    public static List<List<Integer>> permuteBackTracking(int[] nums) {
+       List<Integer> current = new ArrayList();
+       List<List<Integer>> result= new ArrayList();
+        
+       generatePermutationBackTracking(current,result,nums); 
+       
+       return result;
+    }
+    
+    
+    public static void generatePermutationBackTracking(List<Integer> current, List<List<Integer>> result, int[] nums)
+    {
+        
+        //If we have reached a solution
+        if(current.size()==nums.length)
+        {
+            //We save the solution in a new list in the solution
+            result.add(new ArrayList(current));
+        }
+        else
+        {
+            //We go through all the numbers to add them to the solution
+            for(int i=0;i<nums.length;i++)
+            {
+                //If the current solution doesnt have the number
+                if(!current.contains(nums[i]))
+                {
+                    //We add the new element at the end
+                    int endIndex = current.size();
+
+                    current.add(endIndex,nums[i]);
+
+                    //We send it to the next step
+
+                    generatePermutationBackTracking(current,result,nums);
+
+                    //We remove the element for the next in this iteration
+                    current.remove(endIndex);
+                }
+            }
+        }
+        
+    }
+    
+    
+    
+    public static void printArray(int[] arr)
+    {
+        for(int elem : arr)
+        {
+            System.out.print(elem+" ");
+        }
+        System.out.println("");
+    }
+    
+    public static void printList(List<List<Integer>> list)
+    {
+        for(List<Integer> temp : list)
+        {
+            for(Integer temp2 : temp)
+            {
+                System.out.print(temp2+" ");
+            }
+            System.out.println("");
+        }
+        System.out.println("");
     }
     
 }
