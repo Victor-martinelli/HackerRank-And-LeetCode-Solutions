@@ -25,12 +25,12 @@ Given word = "ABCB", return false.
  */
 public class Solution {
 
-    /**
-     * @param args the command line arguments
-     */
     
     public static boolean[][] visited;
     
+    /**
+     * @param args the command line arguments
+     */
     
     public static void main(String[] args) {
         
@@ -90,7 +90,7 @@ public class Solution {
         /* find one matched character, mark the current node as visited */
         visited[row][col] = true;
         
-        /* find the whole word! */
+        /* found the whole word! */
         if (index == word.length() - 1) {
             return true;
         }
