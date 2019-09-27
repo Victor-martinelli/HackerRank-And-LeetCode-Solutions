@@ -29,7 +29,15 @@ public class Solution {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+        int [] nums = {4,5,6,7,0,1,2};
+        
+        int target =0;
+        
+        System.out.println("Rotated Array: ");
+        printArr(nums);
+        
+        System.out.println("Position of the target: "+target+" in the array: "+search(nums,target));
+        
     }
     
      public static int search(int[] nums, int target) {
@@ -50,11 +58,13 @@ public class Solution {
             //Pivot must be to the right
             if(nums[mid]>nums[right])
             {
-                left = mid+1;
+                left = mid+1; //Since the mid element is larger than the most right, 
+                //that means that the pivot must be to the right and the mid element is not the pivot
             }
             else //Pivot must be to the left
             {
-                right = mid;
+                right = mid; //This means that the most right element is still larger than the
+                //Mid, which was the case in the original array and the mid element is considered for pivot
             }
             
         }
@@ -67,17 +77,20 @@ public class Solution {
         right=nums.length-1;
         
         //If the target is greater than our pivot and the target is smaller than the element furthest to the right
+        //In the original array it would have been to the left of the nums[right] element so we set the new left
         if(target>=nums[pivot] && target<=nums[right])
         {
             left = pivot; //Element to be found must be to the right of the pivot
         }
         else
         {
+            //If not, that means that the target before was to the right of the furthest right element,
+            //So we move right to the pivot, which is where the element is now after we rotated the array 
             right = pivot; //Element to be found must be to the left of the pivot
         }
         
         
-        //We peform another binary search
+        //We peform a regular binary search
         
         while(left<=right)
         {
@@ -102,4 +115,13 @@ public class Solution {
         return -1; //This is in  case that we don't find the desired element        
     }
     
+     public static void printArr(int [] arr)
+     {
+         for(int el : arr)
+         {
+             System.out.print(el+" ");
+         }
+         System.out.println("");
+     }
+     
 }
