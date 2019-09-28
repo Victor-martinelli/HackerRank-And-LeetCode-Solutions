@@ -1,4 +1,3 @@
-
 import java.util.Arrays;
 import java.util.PriorityQueue;
 
@@ -56,6 +55,8 @@ public class Solution {
         System.out.println("Is: "+minMeetingRooms(arr3));
     }
     
+    //https://www.programcreek.com/2014/05/leetcode-meeting-rooms-ii-java/
+    //Reason for using a priority queue
     public static int minMeetingRooms(Interval[] intervals)
     {
         if(intervals==null || intervals.length==0)
@@ -98,6 +99,8 @@ public class Solution {
         return queue.size();
     }
 
+    
+    /*
     public static int minMeetingRoomsOriginal(Interval[] intervals) {
         
         int result=1;
@@ -129,7 +132,7 @@ public class Solution {
         
         return result;
     }
-
+    */
     
     public static void printIntervals(Interval[] inter)
     {
@@ -140,4 +143,5 @@ public class Solution {
         System.out.println();
     }
     
+
 }
