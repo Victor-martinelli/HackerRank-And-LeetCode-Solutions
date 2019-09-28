@@ -38,6 +38,36 @@ public class Solution {
     }
 
     public static boolean searchMatrix(int[][] matrix, int target) {
+       
+        //If we can't search inside the matrix
+        
+        if(matrix==null || matrix.length==0 || matrix[0].length==0)
+            return false;
+        
+        //We start from the furthest right column and the first row
+        
+        int i=0;
+        int j = matrix[0].length-1;
+        
+        boolean found=false;
+        
+        //While we don't go out the limits of the matrix
+        while(!found && i<matrix.length && j>=0)
+        {
+            //If we found the target
+            if(matrix[i][j]==target)
+                found=true;
+            else if(target<matrix[i][j])//If target is smaller than the current element that means that it must be to the left
+                j--;
+            else //This means that the target is larger than the current element, so we go down the matrix because thats were it must be
+                i++;
+        }
+        
+        return found;
+       
+    }
+    
+    public static boolean searchMatrixOriginal(int[][] matrix, int target) {
         //We go though the matrix in a diagonal and checking the ends of the row and column to 
         //Check if the searched element can be there. If it can be there we binary search the row and column
 
