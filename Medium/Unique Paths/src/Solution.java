@@ -48,8 +48,31 @@ public class Solution {
         System.out.println("Unique paths for a matrix of size "+n1+"x"+m1+" is: "+uniquePaths(m1,n1));
     }
     
-    //m -> columns    n-> rows 
+
     public static int uniquePaths(int m, int n) {
+        
+        //This can be done simpler if we just have an array that represent each row in a matrix
+        
+        int[] rows = new int[m];
+        
+        //We set the entire array to 1 just like we would do for the matrix
+        
+        for(int i=0;i<m;i++)
+            rows[i]=1;
+        
+        //We now go through the entire array as many rows as there are
+        
+        for(int i=1;i<n;i++)
+            for(int j=1;j<m;j++)
+                rows[j] = rows[j]+rows[j-1];
+        
+        //The last position in the array will have the answer
+        return rows[rows.length-1];        
+    }
+    
+    
+    //m -> columns    n-> rows 
+    public static int uniquePathsOriginal(int m, int n) {
         
         //We have an auxiliary matrix that where each cell will build up the solutions
         
