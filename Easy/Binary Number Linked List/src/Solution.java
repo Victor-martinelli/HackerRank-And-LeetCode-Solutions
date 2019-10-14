@@ -35,7 +35,11 @@ public class Solution {
         n3.next=n4;
         n4.next=n5;
         
-        System.out.println(binaryToDecimal(n1));
+        System.out.println("Binary Number: ");
+        
+        printList(n1);
+        
+        System.out.println("Decimal Number: "+binaryToDecimal(n1));
     }
     
     public static int binaryToDecimal(Node start)
