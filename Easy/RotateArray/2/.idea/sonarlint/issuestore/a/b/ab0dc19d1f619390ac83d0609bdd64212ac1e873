@@ -1,0 +1,10 @@
+
+U
+java:S1197"8Move the array designator from the variable to the type.(‹¼ØÔ8êÀÔ¶/
+]	java:S125"<This block of commented-out lines of code should be removed.(òÈòñûÿÿÿÿ8ìÀÔ¶/
+]	java:S125""<This block of commented-out lines of code should be removed.(òÈòñûÿÿÿÿ8íÀÔ¶/
+{
+java:S3012)"YUse "Arrays.copyOf", "Arrays.asList", "Collections.addAll" or "System.arraycopy" instead.(«¸–çùÿÿÿÿ8íÀÔ¶/
+Z
+java:S1854;"8Remove this useless assignment to local variable "nums".(«Šöşÿÿÿÿ8–øõÔ¶/
+Z	java:S1067"9Replace this use of System.out or System.err by a logger.(æ–İ€ÿÿÿÿÿ8¤øõÔ¶/
