@@ -72,7 +72,7 @@ public class Main {
         int nums2Length = nums2.length;
 
         //Pointers for 1. nums1 2. nums2 3. solution that will be stored in first array
-        //This is because we don't really need to use the original array and can use it to store solutions
+        //This is because we don't really need to use the original array and can use it to
         int i = 0;
         int j = 0;
         int k = 0;
