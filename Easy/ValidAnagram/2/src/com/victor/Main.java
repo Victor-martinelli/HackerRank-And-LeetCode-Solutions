@@ -77,8 +77,8 @@ public class Main {
 
         if(s.length()==t.length()){
 
-            //Since it's only lowercase english letters, it will never go beyong
-            //26 characters so we can keep a int array representing each character
+            //Since it's only lowercase english letters, it will never go beyond
+            //26 characters, so we can keep an int array representing each character
             int[]chars = new int[26];
 
             //Go through both array and increment when we see a character from
@@ -93,7 +93,7 @@ public class Main {
             }
 
             //Now we simply check that all the numbers are zero since it means that
-            //It was found twice or not at all
+            //It was found as many times as the second array or not at all
 
             for(int current : chars){
                 if(current!=0){
@@ -110,7 +110,7 @@ public class Main {
 
     }
 
-    public boolean isAnagramAnotherANother(String s, String t) {
+    public boolean isAnagramAnotherAnother(String s, String t) {
         char[] a=s.toCharArray();
         char[] b=t.toCharArray();
         Arrays.sort(a);
