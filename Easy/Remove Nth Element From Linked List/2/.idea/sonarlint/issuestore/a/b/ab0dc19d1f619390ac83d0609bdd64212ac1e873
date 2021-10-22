@@ -1,0 +1,23 @@
+
+ë
+java:S1845{"tRename method "removeNthFromEndAnother" to prevent any misunderstanding/clash with method "removeNthFromEndANother".(€‘Ù–8˘Òêã /
+N
+java:S18546"8Remove this useless assignment to local variable "temp".(πı‘†
+N	java:S106"9Replace this use of System.out or System.err by a logger.(†ÀπÃ
+?
+java:S14816")Remove this unused "temp" local variable.(πı‘†
+V	java:S1258"<This block of commented-out lines of code should be removed.(¸å’ä¸ˇˇˇˇ
+V	java:S125;"<This block of commented-out lines of code should be removed.(¿ú¨˚ˇˇˇˇˇ
+Q	java:S125@"<This block of commented-out lines of code should be removed.(Œ§Õ≤
+X	java:S125S"<This block of commented-out lines of code should be removed.(Œπﬁá8›èèã /
+]	java:S125Y"<This block of commented-out lines of code should be removed.(‹Æ§ƒ˝ˇˇˇˇ8ﬂèèã /
+]	java:S125i"<This block of commented-out lines of code should be removed.(Éõ∆Ã˛ˇˇˇˇ8‡èèã /
+]	java:S125q"<This block of commented-out lines of code should be removed.(Éõ∆Ã˛ˇˇˇˇ8·èèã /
+Z
+java:S2259="EA "NullPointerException" could be thrown; "current" is nullable here.(ò¨√F
+[
+java:S2259B"EA "NullPointerException" could be thrown; "current" is nullable here.(»‘»°
+d
+java:S2259("BA "NullPointerException" could be thrown; "head" is nullable here.(¥àΩ˚˘ˇˇˇˇ8©êèã /
+]
+java:S2259b"BA "NullPointerException" could be thrown; "head" is nullable here.(¥àΩ˚˘ˇˇˇˇ
