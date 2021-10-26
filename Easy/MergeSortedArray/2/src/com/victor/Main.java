@@ -55,6 +55,7 @@ public class Main {
 
     public void merge2(int[] nums1, int m, int[] nums2, int n) {
 
+        //This is basically the same solution as above but without using the extra space
         //Decrement both of the sizes since we'll be starting from the end of both of them
         m--;
         n--;
